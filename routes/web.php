@@ -11,5 +11,9 @@ Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware('auth')->group(function () {
+    Route::resource('/categories', \App\Http\Controllers\Admin\CategoriesController::class)->names('categories')->except('show');
+});
+
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
