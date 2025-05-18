@@ -13,6 +13,7 @@ Route::get('dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('/categories', \App\Http\Controllers\Admin\CategoriesController::class)->names('categories')->except('show');
+    Route::resource('/tags', \App\Http\Controllers\Admin\TagsController::class)->names('tags')->except('show');
 });
 
 require __DIR__.'/settings.php';
