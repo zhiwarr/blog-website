@@ -31,6 +31,11 @@ class Post extends Model
         ];
     }
 
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -66,6 +71,6 @@ class Post extends Model
     #[Scope]
     public function archived($query)
     {
-        return $query->withTrashed();
+        return $query->onlyTrashed();
     }
 }

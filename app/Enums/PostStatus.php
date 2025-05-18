@@ -6,6 +6,7 @@ enum PostStatus: string
 {
     case PUBLISHED = 'published';
     case UNPUBLISHED = 'unpublished';
+    case ARCHIVED = 'archived';
 
     public static function values(): array
     {
@@ -17,6 +18,7 @@ enum PostStatus: string
         match ($this) {
             self::PUBLISHED => __('published'),
             self::UNPUBLISHED => __('unpublished'),
+            self::ARCHIVED => __('archived')
         };
     }
 }

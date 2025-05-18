@@ -60,6 +60,11 @@ const mainNavItems: NavItem[] = [
         routeName: 'tags.index',
         href: route('tags.index'),
     },
+    {
+        title: 'Posts',
+        routeName: 'posts.index',
+        href: route('posts.index'),
+    },
 ];
 
 
