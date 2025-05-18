@@ -33,7 +33,8 @@ const page = usePage();
 const auth = computed(() => page.props.auth);
 
 const isCurrentRoute = computed(() => (name) => {
-    return route().current(name)
+    const currentRoute = route().current();
+    return currentRoute?.startsWith(name.split('.')[0]);
 })
 
 const activeItemStyles = computed(() => (name: string) => {
@@ -53,6 +54,11 @@ const mainNavItems: NavItem[] = [
         title: 'Categories',
         routeName: 'categories.index',
         href: route('categories.index'),
+    },
+    {
+        title: 'Tags',
+        routeName: 'tags.index',
+        href: route('tags.index'),
     },
 ];
 
